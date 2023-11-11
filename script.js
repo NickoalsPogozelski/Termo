@@ -6,6 +6,14 @@ let tries = 1;
 
 const validateInput = (input) => {
     input.value = input.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
+
+    const maxLength = parseInt(input.getAttribute('maxlength'));
+    const currentLength = input.value.length;
+
+    if (currentLength === maxLength){
+        const nextInput = input.nextElementSibling;
+        nextInput.focus();
+    }
 }
 
 const getRandomWord = () => {
@@ -14,17 +22,6 @@ const getRandomWord = () => {
 }
 
 wordOfTheDay = getRandomWord();
-
-const generateForm = () => {
-    const word = wordOfTheDay.split("");
-
-    word.forEach((char, index) => {
-        createInput(index);
-        console.log(index);
-    })
-    console.log(word);
-    
-}
 
 const onInputChange = (input) => {
 
@@ -47,6 +44,7 @@ const filledResult = (right, index) => {
     }
 
     document.getElementById(index).setAttribute("disabled", true);
+
     //document.getElementById(index).removeAttribute("id");
 
     //createInput();
