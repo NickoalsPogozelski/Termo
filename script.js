@@ -53,7 +53,16 @@ const filledResult = (right, index) => {
 }
 
 const unlockTries = () =>{
-    
+
+    for(let i = tries * 5; i <= ((tries + 1) * 5) - 1; i++){
+        const formInput = document.getElementById(i);
+
+        formInput.removeAttribute('disabled');
+        formInput.classList.remove('bg-gray-500');
+        formInput.classList.add('bg-transparent');
+        console.log(i);
+    }
+
 }
 
 const onFormSend = () => {
@@ -70,6 +79,7 @@ const onFormSend = () => {
         }
     })
 
+    unlockTries();
     tries += 1;
 }
 
