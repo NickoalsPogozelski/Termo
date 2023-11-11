@@ -2,6 +2,7 @@ import palavras from './palavras.js';
 
 let answer = [];
 let wordOfTheDay = "";
+let tries = 1;
 
 const validateInput = (input) => {
     input.value = input.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
@@ -13,18 +14,6 @@ const getRandomWord = () => {
 }
 
 wordOfTheDay = getRandomWord();
-
-const createInput = (key) => {
-    const letterInput = document.createElement('input');
-    const containerDiv = document.getElementById('container');
-
-    letterInput.setAttribute('type', 'text');
-    letterInput.setAttribute('id', key);
-    letterInput.setAttribute('class', 'w-10 h-10 mx-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none');
-    letterInput.setAttribute('onkeyup', 'onInputChange(this)');
-
-    containerDiv.appendChild(letterInput);
-}
 
 const generateForm = () => {
     const word = wordOfTheDay.split("");
@@ -58,6 +47,13 @@ const filledResult = (right, index) => {
     }
 
     document.getElementById(index).setAttribute("disabled", true);
+    document.getElementById(index).removeAttribute("id");
+
+    //createInput();
+}
+
+const unlockTries = () =>{
+    
 }
 
 const onFormSend = () => {
@@ -73,9 +69,11 @@ const onFormSend = () => {
             filledResult(false, index);
         }
     })
+
+    tries += 1;
 }
 
-generateForm();
+//generateForm();
 
 window.validateInput = validateInput;
 window.onInputChange = onInputChange;
