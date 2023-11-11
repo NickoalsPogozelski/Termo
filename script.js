@@ -47,7 +47,7 @@ const filledResult = (right, index) => {
     }
 
     document.getElementById(index).setAttribute("disabled", true);
-    document.getElementById(index).removeAttribute("id");
+    //document.getElementById(index).removeAttribute("id");
 
     //createInput();
 }
@@ -60,7 +60,6 @@ const unlockTries = () =>{
         formInput.removeAttribute('disabled');
         formInput.classList.remove('bg-gray-500');
         formInput.classList.add('bg-transparent');
-        console.log(i);
     }
 
 }
@@ -69,15 +68,21 @@ const onFormSend = () => {
 
     const rightWord = wordOfTheDay.split("");
 
-    rightWord.forEach((e, index) => {
-        if(e == answer[index]){
-            console.log('right');
-            filledResult(true, index);
-        } else {
-            console.log('wrong' + e);
-            filledResult(false, index);
-        }
-    })
+    for(let i = (tries - 1) * 5; i <= ((tries) * 5) - 1; i++){
+        console.log(i);
+        
+        rightWord.forEach((e) => {
+            //console.log(i);
+            if(e == answer[i]){
+                //console.log('right');
+                filledResult(true, i);
+            } else {
+                //console.log('wrong' + e);
+                filledResult(false, i);
+            }
+        })
+    }
+
 
     unlockTries();
     tries += 1;
