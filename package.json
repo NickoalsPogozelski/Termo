@@ -1,0 +1,24 @@
+{
+  "name": "termoo",
+  "version": "1.0.0",
+  "description": "Copy of popular website Wordle",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickoalsPogozelski/Termo.git"
+  },
+  "keywords": [
+    "game",
+    "online",
+    "words"
+  ],
+  "author": "Nickolas Pogozelski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NickoalsPogozelski/Termo/issues"
+  },
+  "homepage": "https://github.com/NickoalsPogozelski/Termo#readme"
+}

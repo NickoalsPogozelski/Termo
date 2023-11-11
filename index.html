@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cópia de Termoo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script type="module" src='palavras.js'></script>
+    <script type="module" src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-700">
+    <form onsubmit="return false" class="flex flex-col justify-center bg-gray-700 h-screen items-center" id="form">
+        <div class="grid grid-cols-5" id="container">
+
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=0 onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=1 onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=2 onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=3 onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=4 onkeyup="onInputChange(this)">
+
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=5 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=6 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=7 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=8 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=9 disabled onkeyup="onInputChange(this)">
+
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=10 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=11 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=12 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=13 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=14 disabled onkeyup="onInputChange(this)">
+
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=15 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=16 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=17 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=18 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=19 disabled onkeyup="onInputChange(this)">
+
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=20 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=21 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=22 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=23 disabled onkeyup="onInputChange(this)">
+            <input type="text" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-500 border-gray-500 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=24 disabled onkeyup="onInputChange(this)">
+
+        </div>
+        <div class="">
+            <button type="submit" onclick="onFormSend()" class="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enviar</button>
+        </div>
+    </form>
+    
+</body>
+</html>
