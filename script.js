@@ -4,6 +4,8 @@ let answer = [];
 let wordOfTheDay = "";
 let tries = 1;
 
+document.getElementById("0").focus();
+
 const validateInput = (input) => {
     input.value = input.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
 
@@ -56,13 +58,47 @@ const unlockTries = () =>{
         const formInput = document.getElementById(i);
 
         formInput.removeAttribute('disabled');
-        formInput.classList.remove('bg-gray-500');
+        formInput.classList.remove('bg-gray-700');
         formInput.classList.add('bg-transparent');
+        formInput.classList.remove('border-gray-700');
+
     }
+
+    let lastItemFromRow = tries * 5;
+    document.getElementById(lastItemFromRow.toString()).focus();
 
 }
 
+const checkAnswer = () => {
+    let parsedAnswer = '';
+    let checked = false;
+
+    for (let i = (tries - 1) * 5; i <= ((tries) * 5) - 1; i++) {
+        parsedAnswer += answer[i];
+        console.log(answer[i] + " - " + i);
+    }
+
+    palavras.forEach((palavra) => {
+        if ( palavra.toUpperCase() == parsedAnswer){
+            console.log(true);
+            checked = true;
+        }
+    })
+    console.log(wordOfTheDay);
+    return checked;
+}
+
 const onFormSend = () => {
+
+    const check = checkAnswer();
+
+    console.log(check);
+
+    if ( check ){
+
+    if (tries == 5){
+        alert('Você perdeu!');
+    }
 
     const rightWord = wordOfTheDay.split("");
 
@@ -81,9 +117,10 @@ const onFormSend = () => {
         })
     }
 
-
     unlockTries();
     tries += 1;
+    
+    }
 }
 
 //generateForm();
