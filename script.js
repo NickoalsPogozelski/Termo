@@ -84,6 +84,7 @@ const checkAnswer = () => {
             checked = true;
         }
     })
+    console.log(parsedAnswer);
     console.log(wordOfTheDay);
     return checked;
 }
@@ -105,11 +106,20 @@ const onFormSend = () => {
     for(let i = (tries - 1) * 5; i <= ((tries) * 5) - 1; i++){
         console.log(i);
         
-        rightWord.forEach((e) => {
+        rightWord.forEach((e, index) => {
             //console.log(i);
-            if(e == answer[i]){
-                //console.log('right');
-                filledResult(true, i);
+            if(e === answer[i]){
+                
+                console.log(index, answer[i], i, index);
+
+                if ( index + ((tries - 1)* 5) === i ) {
+                    filledResult(true, i);
+                } else {
+                    document.getElementById(i).classList.remove("bg-transparent");
+                    document.getElementById(i).classList.add("bg-yellow-400");
+                    document.getElementById(i).classList.add("border-yellow-400");
+                }
+                
             } else {
                 //console.log('wrong' + e);
                 filledResult(false, i);
