@@ -102,7 +102,8 @@ const onFormSend = () => {
     }
 
     const rightWord = wordOfTheDay.split("");
-
+    let numberOfWins = 0;
+    
     for(let i = (tries - 1) * 5; i <= ((tries) * 5) - 1; i++){
         console.log(i);
         
@@ -114,6 +115,7 @@ const onFormSend = () => {
 
                 if ( index + ((tries - 1)* 5) === i ) {
                     filledResult(true, i);
+                    numberOfWins++;
                 } else {
                     document.getElementById(i).classList.remove("bg-transparent");
                     document.getElementById(i).classList.add("bg-yellow-400");
@@ -125,10 +127,16 @@ const onFormSend = () => {
                 filledResult(false, i);
             }
         })
-    }
+        
 
+    }
+    
+    if (numberOfWins === 5) {
+        alert('você venceu!');
+    } else {
     unlockTries();
     tries += 1;
+    }
     
     }
 }
