@@ -100,7 +100,7 @@ const Palavras =
     "diabo", "modal", "olhos", "cardo", "pluma", "lento", "sugar", "corte", "versa", "hifen",
     "bugre", "sadio", "cacto", "passe", "harem", "choca", "nesga", "ferir", "ultra", "obtem",
     "socio", "quite", "usual", "ceifa", "staff", "cargo", "sarau", "latir", "varal",
-    "morto", "furia", "marte", "minas", "ostra"
+    "morto", "furia", "marte", "minas", "ostra", "preta", "cravo"
     ]
 
 export default Palavras;

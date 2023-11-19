@@ -3,51 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cópia de Termoo</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>CSS</title>
+    <link rel="stylesheet" href="style.css">
     <script type="module" src='palavras.js'></script>
-    <script type="module" src="script.js"></script>
-    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-700">
-    <form onsubmit="return false" class="flex flex-col justify-center bg-gray-600 h-screen items-center" id="form">
-        <div class="grid grid-cols-5" id="container">
+<body>
+    <script type="module" src="script.js"></script>
 
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=0 onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=1 onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=2 onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=3 onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-transparent border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=4 onkeyup="onInputChange(this)">
-
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=5 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=6 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=7 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=8 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=9 disabled onkeyup="onInputChange(this)">
-
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=10 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=11 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=12 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=13 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=14 disabled onkeyup="onInputChange(this)">
-
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=15 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=16 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=17 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=18 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=19 disabled onkeyup="onInputChange(this)">
-
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=20 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=21 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=22 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=23 disabled onkeyup="onInputChange(this)">
-            <input type="text" maxlength="1" class="w-10 h-10 m-1 text-bold text-md rounded-md bg-gray-700 border-gray-700 border-4 text-3xl text-center text-gray-100 focus:border-8 focus:outline-none" id=24 disabled onkeyup="onInputChange(this)">
-
+    <div class="container">
+        
+        <form class="main-game" onsubmit="return false" id="form">
+            <div class="grid 1">
+                <input type="text" maxlength="1" style="--delay:1" class="letter-input neutral" id="0" onkeyup='Game.onInputChange(this)'>
+                <input type="text" maxlength="1" style="--delay:2" class="letter-input neutral" id="1" onkeyup="Game.onInputChange(this)">
+                <input type="text" maxlength="1" style="--delay:3" class="letter-input neutral" id="2" onkeyup="Game.onInputChange(this)">
+                <input type="text" maxlength="1" style="--delay:4" class="letter-input neutral" id="3" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:5" class="letter-input neutral" id="4" onkeyup="Game.onInputChange(this)">
         </div>
-        <div class="">
-            <button type="submit" onclick="onFormSend()" class="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enviar</button>
+        
+        <div class="grid 2">
+            <input type="text" maxlength="1" style="--delay:1" disabled class="letter-input disabled" id="5" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:2" disabled class="letter-input disabled" id="6" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:3" disabled class="letter-input disabled" id="7" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:4" disabled class="letter-input disabled" id="8" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:5" disabled class="letter-input disabled" id="9" onkeyup="Game.onInputChange(this)">
         </div>
+        
+        <div class="grid 3">
+            <input type="text" maxlength="1" style="--delay:1" disabled class="letter-input disabled" id="10" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:2" disabled class="letter-input disabled" id="11" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:3" disabled class="letter-input disabled" id="12" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:4" disabled class="letter-input disabled" id="13" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:5" disabled class="letter-input disabled" id="14" onkeyup="Game.onInputChange(this)">
+        </div>
+        
+        <div class="grid 4">
+            <input type="text" maxlength="1" style="--delay:1" disabled class="letter-input disabled" id="15" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:2" disabled class="letter-input disabled" id="16" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:3" disabled class="letter-input disabled" id="17" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:4" disabled class="letter-input disabled" id="18" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:5" disabled class="letter-input disabled" id="19" onkeyup="Game.onInputChange(this)">
+        </div>
+        
+        <div class="grid 5">
+            <input type="text" maxlength="1" style="--delay:1" disabled class="letter-input disabled" id="20" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:2" disabled class="letter-input disabled" id="21" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:3" disabled class="letter-input disabled" id="22" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:4" disabled class="letter-input disabled" id="23" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" style="--delay:5" disabled class="letter-input disabled" id="24" onkeyup="Game.onInputChange(this)">
+        </div>
+        
+        <div class="grid 6">
+            <input type="text" maxlength="1" disabled class="letter-input disabled" id="25" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" disabled class="letter-input disabled" id="26" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" disabled class="letter-input disabled" id="27" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" disabled class="letter-input disabled" id="28" onkeyup="Game.onInputChange(this)">
+            <input type="text" maxlength="1" disabled class="letter-input disabled" id="29" onkeyup="Game.onInputChange(this)">
+        </div>
+        
+        <button type="submit" onclick="Game.onSubmitHandler()"> button </button>
     </form>
     
+    <div class="virtual-keyboard">
+        
+        <div class="key-row">
+            <button class="key">Q</button>
+            <button class="key">W</button>
+            <button class="key">E</button>
+            <button class="key">R</button>
+            <button class="key">T</button>
+            <button class="key">Y</button>
+            <button class="key">U</button>
+            <button class="key">I</button>
+            <button class="key">O</button>
+            <button class="key">P</button>
+        </div>
+        
+        <div class="key-row">
+            <button class="key">A</button>
+            <button class="key">S</button>
+            <button class="key">D</button>
+            <button class="key">F</button>
+            <button class="key">G</button>
+            <button class="key">H</button>
+            <button class="key">J</button>
+            <button class="key">K</button>
+            <button class="key">L</button>
+        </div>
+        
+        <div class="key-row">
+            <button class="key">Z</button>
+            <button class="key">X</button>
+            <button class="key">C</button>
+            <button class="key">V</button>
+            <button class="key">B</button>
+            <button class="key">N</button>
+            <button class="key">M</button>
+        </div>
+    </div>
+    
+    </div>
 </body>
 </html>

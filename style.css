@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+body {
+    background-color: #6e5c62
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-around;
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.letter-input{
+    position: relative;
+
+    margin-top: 3px;
+
+    cursor: pointer;
+    caret-color: transparent;
+
+    width: clamp(2rem, 5vh, 5rem);
+    height: clamp(2rem, 5vh, 5rem);
+    
+    text-align: center;
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.8rem, 4.8vh, 4.8rem);
+    font-weight: 500;
+
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 0.125em 0.125em 0.2em 0.125em;
+
+}
+
+.letter-input:focus{
+    outline: none;
+    border-width:  0.125em 0.125em 0.25em 0.125em;    
+
+    animation: 0.58s alternate hopin;
+}
+
+.sent{
+    animation: calc(0.8s * var(--delay)) turnin;
+}
+
+.neutral{
+    border-color: #4c4347;
+    background-color: transparent;
+}
+
+.right{
+    border-color: #3ca393 !important;
+    background-color: #3ca393 !important;
+}
+
+.kindof{
+    border-color: #d3ab6c !important;
+    background-color: #d3ab6c !important;
+}
+
+.wrong{
+    border-color: #342c2c;
+    background-color: #342c2c;
+}
+
+
+
+
+.virtual-keyboard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+
+.key-row{
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 5px;
+}
+
+.key{
+    background-color: #4c4347;
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+
+    color: white;
+    text-align: center;
+
+    width: 3.5rem;
+    height: 4rem;
+    border-radius: 3px;
+}
+
+.disabled{
+    background-color: #615458;
+    border-color: #615458;
+    
+}
+
+@keyframes hopin {
+    from {
+        font-size: clamp(1.8rem, 4.8vh, 4.8rem);
+        width: clamp(2rem, 5vh, 5rem);
+        height: clamp(2rem, 5vh, 5rem);
+        }
+
+    50% {
+        font-size: clamp(2.8rem, 6.8vh, 6.8rem);
+        width: clamp(3rem, 7vh, 7rem);
+        height: clamp(3rem, 7vh, 7rem);
+    }
+
+    to {
+        font-size: clamp(1.8rem, 4.8vh, 4.8rem);
+        width: clamp(2rem, 5vh, 5rem);
+        height: clamp(2rem, 5vh, 5rem);
+    }
+}
+
+@keyframes turnin {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}

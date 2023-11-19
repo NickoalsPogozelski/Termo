@@ -1,148 +1,163 @@
 import palavras from './palavras.js';
 
-let answer = [];
-let wordOfTheDay = "";
-let tries = 1;
+class Word {
 
-document.getElementById("0").focus();
-
-const validateInput = (input) => {
-    input.value = input.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
-
-    const maxLength = parseInt(input.getAttribute('maxlength'));
-    const currentLength = input.value.length;
-
-    if (currentLength === maxLength){
-        const nextInput = input.nextElementSibling;
-        nextInput.focus();
-    }
-}
-
-const getRandomWord = () => {
-    const randomWord = palavras[Math.floor(Math.random()*palavras.length)];
-    return randomWord.toUpperCase();
-}
-
-wordOfTheDay = getRandomWord();
-
-const onInputChange = (input) => {
-
-    validateInput(input);
-    answer[input.id] = input.value;
-
-    console.log(answer)
-}
-
-const filledResult = (right, index) => {
-    
-    if (right) {
-        document.getElementById(index).classList.remove("bg-transparent");
-        document.getElementById(index).classList.add("bg-green-400");
-        document.getElementById(index).classList.add("border-green-400");
-    } else {
-        document.getElementById(index).classList.remove("bg-transparent");
-        document.getElementById(index).classList.add("bg-red-400");
-        document.getElementById(index).classList.add("border-red-400");
+    constructor() {
+        this.wordOfTheDay = this.getRandomWord().toUpperCase();
+        this.answer = [];
+        this.tries = 1;
     }
 
-    document.getElementById(index).setAttribute("disabled", true);
-
-    //document.getElementById(index).removeAttribute("id");
-
-    //createInput();
-}
-
-const unlockTries = () =>{
-
-    for(let i = tries * 5; i <= ((tries + 1) * 5) - 1; i++){
-        const formInput = document.getElementById(i);
-
-        formInput.removeAttribute('disabled');
-        formInput.classList.remove('bg-gray-700');
-        formInput.classList.add('bg-transparent');
-        formInput.classList.remove('border-gray-700');
-
+    getFirstArrayElement(){
+        return (this.tries - 1) * 5;
     }
 
-    let lastItemFromRow = tries * 5;
-    document.getElementById(lastItemFromRow.toString()).focus();
-
-}
-
-const checkAnswer = () => {
-    let parsedAnswer = '';
-    let checked = false;
-
-    for (let i = (tries - 1) * 5; i <= ((tries) * 5) - 1; i++) {
-        parsedAnswer += answer[i];
-        console.log(answer[i] + " - " + i);
+    getLastArrayElement(){
+        return (this.tries * 5) - 1;
     }
 
-    palavras.forEach((palavra) => {
-        if ( palavra.toUpperCase() == parsedAnswer){
-            console.log(true);
-            checked = true;
+    getRandomWord() {
+        return palavras[Math.floor(Math.random() * palavras.length)];
+    }
+
+    splitRandomWord(){
+        return this.wordOfTheDay.split("");
+    }
+
+    parseInput(input) {
+        input.value = input.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
+        const lastArrayElement = this.getLastArrayElement();
+
+        //Auto Focus
+        const currentLength = input.value.length;
+
+        if (currentLength === 1 && input.id < lastArrayElement){
+            input.nextElementSibling.focus();
         }
-    })
-    console.log(parsedAnswer);
-    console.log(wordOfTheDay);
-    return checked;
-}
-
-const onFormSend = () => {
-
-    const check = checkAnswer();
-
-    console.log(check);
-
-    if ( check ){
-
-    if (tries == 5){
-        alert('Você perdeu!');
     }
 
-    const rightWord = wordOfTheDay.split("");
-    let numberOfWins = 0;
-    
-    for(let i = (tries - 1) * 5; i <= ((tries) * 5) - 1; i++){
-        console.log(i);
-        
-        rightWord.forEach((e, index) => {
-            //console.log(i);
-            if(e === answer[i]){
-                
-                console.log(index, answer[i], i, index);
+    parseAnswer() {
+        let parsedAnswer = '';
 
-                if ( index + ((tries - 1)* 5) === i ) {
-                    filledResult(true, i);
-                    numberOfWins++;
-                } else {
-                    document.getElementById(i).classList.remove("bg-transparent");
-                    document.getElementById(i).classList.add("bg-yellow-400");
-                    document.getElementById(i).classList.add("border-yellow-400");
-                }
-                
-            } else {
-                //console.log('wrong' + e);
-                filledResult(false, i);
+        const firstArrayElement = this.getFirstArrayElement();
+        const lastArrayElement = this.getLastArrayElement();
+
+        for (let i = firstArrayElement; i <= lastArrayElement; i++){
+            parsedAnswer += this.answer[i];
+
+        }
+
+        return parsedAnswer;
+    }
+}
+
+class MainGame extends Word {
+
+    constructor(){
+        super();
+        this.isAnswerRight = null;
+    }
+
+    onInputChange(input){
+        this.parseInput(input);
+        this.answer[input.id] = input.value;
+    }
+
+    fillInputOnResult(result, index) {
+        const input = document.getElementById(index);
+        
+        switch(result){
+
+            case 'Right':
+                input.classList.remove("neutral");
+                input.classList.add("right");
+            break;
+
+            case 'Wrong':
+                input.classList.remove("neutral");
+                input.classList.add("wrong");
+            break;
+
+            case 'Kindof':
+                input.classList.remove("neutral");
+                input.classList.add("kindof");
+            break;
+
+        }
+
+        input.setAttribute("disabled", true);
+    }
+
+    checkAnswer(){
+
+        let isCorrect = false;
+        let initializedParsedAnswer = this.parseAnswer();
+
+        for (const palavra of palavras) {
+            if (palavra.toUpperCase() === initializedParsedAnswer) {
+                isCorrect = true;
+                break;
             }
-        })
+        }
         
+        return isCorrect;
 
     }
-    
-    if (numberOfWins === 5) {
-        alert('você venceu!');
-    } else {
-    unlockTries();
-    tries += 1;
+
+    unlockNewGrid(){
+        let firstUnlockedElement = this.tries * 5;
+        let lastUnlockedElement = ((this.tries + 1) * 5) - 1; 
+
+        for (let i = firstUnlockedElement; i <= lastUnlockedElement; i++){
+            const formInput = document.getElementById(i);
+
+            formInput.removeAttribute('disabled');
+            formInput.classList.remove('disabled');
+            formInput.classList.add('neutral');
+        }
+
+        document.getElementById(firstUnlockedElement.toString()).focus();
     }
-    
+
+    onSubmitHandler(){
+        const firstArrayElement = this.getFirstArrayElement();
+        const lastArrayElement = this.getLastArrayElement();
+
+        if(this.checkAnswer()){
+            let rightLetters = 0;
+
+            if (this.tries === 5){
+                alert('You lost the Game');
+            }
+
+            for(let i = firstArrayElement; i <= lastArrayElement; i++){
+                
+                this.splitRandomWord().forEach((letter, index) => {
+                    if(letter.toUpperCase() == this.answer[i]){    
+                    
+                        if ( index + firstArrayElement === i ){
+                            this.fillInputOnResult('Right', i);
+                            rightLetters++;
+                        } else {
+                            this.fillInputOnResult('Kindof', i);
+                        }
+                        
+                    } else {
+                        this.fillInputOnResult("Wrong", i);
+                    }
+                })
+            }
+
+        if (rightLetters === 5) {
+            alert("You Won!");
+        } else {
+            this.unlockNewGrid();
+            this.tries++;
+        }
+        }
     }
 }
 
-//generateForm();
-
-window.validateInput = validateInput;
-window.onInputChange = onInputChange;
-window.onFormSend = onFormSend;
+export {MainGame};
+const Game = new MainGame();
+window.Game = Game;
