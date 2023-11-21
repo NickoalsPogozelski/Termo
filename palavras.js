@@ -99,8 +99,8 @@ const Palavras =
     "quais", "penca", "samba", "custo", "bruxa", "repor", "mania", "pagar", "sabia", "xampu",
     "diabo", "modal", "olhos", "cardo", "pluma", "lento", "sugar", "corte", "versa", "hifen",
     "bugre", "sadio", "cacto", "passe", "harem", "choca", "nesga", "ferir", "ultra", "obtem",
-    "socio", "quite", "usual", "ceifa", "staff", "cargo", "sarau", "latir", "varal",
-    "morto", "furia", "marte", "minas", "ostra", "preta", "cravo"
+    "socio", "quite", "usual", "ceifa", "staff", "cargo", "sarau", "latir", "varal", "arara",
+    "morto", "furia", "marte", "minas", "ostra", "preta", "cravo", "artes", "tropa"
     ]
 
 export default Palavras;

@@ -73,9 +73,6 @@ body {
     background-color: #342c2c;
 }
 
-
-
-
 .virtual-keyboard{
     display: flex;
     flex-direction: column;
@@ -91,7 +88,6 @@ body {
 }
 
 .key{
-    background-color: #4c4347;
     border: none;
 
     cursor: pointer;
@@ -105,6 +101,10 @@ body {
     width: 3.5rem;
     height: 4rem;
     border-radius: 3px;
+}
+
+.key-neutral{
+    background-color: #4c4347;
 }
 
 .disabled{

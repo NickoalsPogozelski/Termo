@@ -28,7 +28,6 @@ class Word {
         input.value = input.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
         const lastArrayElement = this.getLastArrayElement();
 
-        //Auto Focus
         const currentLength = input.value.length;
 
         if (currentLength === 1 && input.id < lastArrayElement){
@@ -39,14 +38,11 @@ class Word {
     parseAnswer() {
         let parsedAnswer = '';
 
-        const firstArrayElement = this.getFirstArrayElement();
-        const lastArrayElement = this.getLastArrayElement();
-
-        for (let i = firstArrayElement; i <= lastArrayElement; i++){
-            parsedAnswer += this.answer[i];
-
-        }
-
+        this.answer.forEach((letra) => {
+            parsedAnswer += letra;
+        })
+          
+        console.log(parsedAnswer);
         return parsedAnswer;
     }
 }
@@ -59,28 +55,43 @@ class MainGame extends Word {
     }
 
     onInputChange(input){
+        let answerIndex = input.id % 5;
+
         this.parseInput(input);
-        this.answer[input.id] = input.value;
+        this.answer[answerIndex] = input.value;
+        console.log(this.answer);
     }
 
-    fillInputOnResult(result, index) {
+    fillInputOnResult(result, index, letter) {
         const input = document.getElementById(index);
+        const key = document.getElementById(letter);
         
         switch(result){
 
             case 'Right':
                 input.classList.remove("neutral");
+                input.classList.remove("wrong");
                 input.classList.add("right");
+                
+                key.classList.remove("key-neutral");
+                key.classList.add("right");
             break;
 
             case 'Wrong':
                 input.classList.remove("neutral");
                 input.classList.add("wrong");
+
+                key.classList.remove("key-neutral");
+                key.classList.add("wrong");
             break;
 
             case 'Kindof':
                 input.classList.remove("neutral");
+                input.classList.remove("wrong");
                 input.classList.add("kindof");
+
+                key.classList.remove("key-neutral");
+                key.classList.add("kindof");
             break;
 
         }
@@ -108,6 +119,8 @@ class MainGame extends Word {
         let firstUnlockedElement = this.tries * 5;
         let lastUnlockedElement = ((this.tries + 1) * 5) - 1; 
 
+        this.answer = [];
+
         for (let i = firstUnlockedElement; i <= lastUnlockedElement; i++){
             const formInput = document.getElementById(i);
 
@@ -120,43 +133,53 @@ class MainGame extends Word {
     }
 
     onSubmitHandler(){
-        const firstArrayElement = this.getFirstArrayElement();
-        const lastArrayElement = this.getLastArrayElement();
-
+        let rightLetters = 0;
+        console.log(this.answer);
+        
         if(this.checkAnswer()){
-            let rightLetters = 0;
 
-            if (this.tries === 5){
+            if (this.tries === 6){
                 alert('You lost the Game');
             }
 
-            for(let i = firstArrayElement; i <= lastArrayElement; i++){
-                
-                this.splitRandomWord().forEach((letter, index) => {
-                    if(letter.toUpperCase() == this.answer[i]){    
-                    
-                        if ( index + firstArrayElement === i ){
-                            this.fillInputOnResult('Right', i);
-                            rightLetters++;
-                        } else {
-                            this.fillInputOnResult('Kindof', i);
-                        }
-                        
-                    } else {
-                        this.fillInputOnResult("Wrong", i);
-                    }
-                })
-            }
+            this.answer.forEach((answerLetter, answerIndex) => {
+                let gridElement = 0;
 
-        if (rightLetters === 5) {
-            alert("You Won!");
-        } else {
-            this.unlockNewGrid();
-            this.tries++;
-        }
+                if(this.tries == 1){
+                    gridElement = answerIndex;
+                } else {
+                    const iterator = (this.tries - 1) * 5;
+                    gridElement = answerIndex + iterator;
+                }
+                
+                
+                this.splitRandomWord().forEach((randomWordLetter, RandomWordIndex) => {
+                    console.log(gridElement);
+                    if(randomWordLetter.toUpperCase() == answerLetter && answerIndex == RandomWordIndex){    
+                        this.fillInputOnResult('Right', gridElement, answerLetter);
+                        rightLetters++;
+                        return;
+                    } else if (randomWordLetter.toUpperCase() == answerLetter){
+                        this.fillInputOnResult('Kindof', gridElement, answerLetter);
+                        return;
+                    } else if (randomWordLetter.toUpperCase() != answerLetter) {
+                        console.log("WRONG!!!! why: ", randomWordLetter, " and: ", answerLetter, ".... also if you wanna know: ", answerIndex, RandomWordIndex );
+                        this.fillInputOnResult('Wrong', gridElement, answerLetter);
+                    }          
+
+                })
+            })
+           
+            if (rightLetters === 5) {
+                alert("You Won!");
+            } else {
+                this.unlockNewGrid();
+                this.tries++;
+            } 
         }
     }
 }
+
 
 export {MainGame};
 const Game = new MainGame();
